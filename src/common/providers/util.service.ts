@@ -15,7 +15,10 @@ export class UtilService {
 
     const lines: string[] = output.split(/(?:\r\n|\n|\r)/);
 
-    return lines.map((text: string) => text.replace(/^\s+/gm, '')).join(delimiter).trim();
+    return lines
+      .map((text: string) => text.replace(/^\s+/gm, ''))
+      .join(delimiter)
+      .trim();
   }
 
   public pre(templateData: TemplateStringsArray, ...param: TemplateParameter): string {
@@ -27,7 +30,7 @@ export class UtilService {
   }
 
   public isKeyOfSchema<T>(key: unknown, schema: T): key is keyof T {
-    return (typeof key === 'string') && key in schema;
+    return typeof key === 'string' && key in schema;
   }
 
   public removeUndefined<T>(argv: T): Record<string, unknown> {

@@ -20,8 +20,7 @@ beforeAll(async () => {
 });
 
 test('POST: /test/crud', async () => {
-  const { status, body } = await request.post('/test/crud')
-    .send({ title: 'FooBar', content: 'Hello World' });
+  const { status, body } = await request.post('/test/crud').send({ title: 'FooBar', content: 'Hello World' });
 
   expect([200, 201]).toContain(status);
   expect(body).toHaveProperty('id');
@@ -30,23 +29,19 @@ test('POST: /test/crud', async () => {
 });
 
 test('GET: /test/crud/:idx', async () => {
-  const { body } = await request.get(`/test/crud/${idx}`)
-    .expect(200);
+  const { body } = await request.get(`/test/crud/${idx}`).expect(200);
 
   expect(body).toHaveProperty('title', 'FooBar');
 });
 
 test('PUT: /test/crud/:idx', async () => {
-  const { body } = await request.put(`/test/crud/${idx}`)
-    .send({ title: 'Blahblahblah' })
-    .expect(200);
+  const { body } = await request.put(`/test/crud/${idx}`).send({ title: 'Blahblahblah' }).expect(200);
 
   expect(body).toHaveProperty('success', true);
 });
 
 test('DELETE: /test/crud/:idx', async () => {
-  const { body } = await request.delete(`/test/crud/${idx}`)
-    .expect(200);
+  const { body } = await request.delete(`/test/crud/${idx}`).expect(200);
 
   expect(body).toHaveProperty('success', true);
 });

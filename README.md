@@ -2,6 +2,10 @@
 
 Node.js framework NestJS project structure
 
+## TODO
+
+1. 更新到新版本nest框架
+
 ## Configuration
 
 1. Create a `.env` file

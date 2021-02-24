@@ -40,13 +40,16 @@ import { SampleModule } from './sample/sample.module';
     }),
     // Module Router
     // https://github.com/nestjsx/nest-router
-    RouterModule.forRoutes([{
-      path: 'aws',
-      module: AWSModule,
-    }, {
-      path: 'test',
-      module: SampleModule,
-    }]),
+    RouterModule.forRoutes([
+      {
+        path: 'aws',
+        module: AWSModule,
+      },
+      {
+        path: 'test',
+        module: SampleModule,
+      },
+    ]),
     // Service Modules
     CommonModule, // Global
     BaseModule,

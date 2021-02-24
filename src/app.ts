@@ -12,15 +12,17 @@ import { Logger } from './common';
  * https://github.com/nestjs/nest/issues/2249#issuecomment-494734673
  */
 async function bootstrap(): Promise<void> {
-  const isProduction = (process.env.NODE_ENV === 'production');
+  const isProduction = process.env.NODE_ENV === 'production';
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     logger: isProduction ? false : undefined,
   });
   // https://docs.nestjs.com/techniques/validation
-  app.useGlobalPipes(new ValidationPipe({
-    disableErrorMessages: true,
-    transform: true, // transform object to DTO class
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      disableErrorMessages: true,
+      transform: true, // transform object to DTO class
+    }),
+  );
 
   if (isProduction) {
     app.useLogger(await app.resolve(Logger));
@@ -34,4 +36,6 @@ async function bootstrap(): Promise<void> {
 }
 
 // eslint-disable-next-line no-console
-bootstrap().then(() => console.log('Bootstrap', new Date().toLocaleString())).catch(console.error);
+bootstrap()
+  .then(() => console.log('Bootstrap', new Date().toLocaleString()))
+  .catch(console.error);
