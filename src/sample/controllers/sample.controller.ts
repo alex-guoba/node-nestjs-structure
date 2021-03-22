@@ -12,7 +12,9 @@ import { DatabaseService } from '../providers';
  * route /test/sample/*
  */
 @UseGuards(RolesGuard)
-@Controller('sample')
+@Controller({
+  path: 'sample',
+})
 export class SampleController {
   constructor(
     private readonly logger: Logger,
@@ -26,7 +28,6 @@ export class SampleController {
   @Get() // http://localhost:3000/test/sample
   public sample(): Record<string, unknown> {
     this.logger.log('this is sample');
-
     return {
       hello: this.config.get('hello'),
       foo: this.config.get('foo'),
