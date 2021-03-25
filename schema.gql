@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Payload {
+  userId: String!
+  username: String!
+  roles: [String!]!
+}
+
+type Simple {
+  id: ID!
+  score: Int
+  rating: Float
+  title: String!
+  content: String
+  tags: [String!]
+  createdAt: Date
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type Query {
+  user: Payload!
+  read(id: ID!): Simple!
+  find(title: String!, content: String): [Simple!]!
+}
+
+type Mutation {
+  create(simpleData: SimpleInput!): Simple!
+  remove(id: ID!): Boolean!
+}
+
+input SimpleInput {
+  title: String!
+  content: String
+  tags: [String!]!
+}

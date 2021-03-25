@@ -20,17 +20,19 @@ import { SampleModule } from './sample/sample.module';
       isGlobal: true,
       load: [configuration],
     }),
+
     // Database
     // https://docs.nestjs.com/techniques/database
     TypeOrmModule.forRootAsync({
       useFactory: (config: ConfigService) => ({
         entities: [`${__dirname}/entity/**/*.{js,ts}`],
-        subscribers: [`${__dirname}/subscriber/**/*.{js,ts}`],
-        migrations: [`${__dirname}/migration/**/*.{js,ts}`],
+        // subscribers: [`${__dirname}/subscriber/**/*.{js,ts}`],
+        // migrations: [`${__dirname}/migration/**/*.{js,ts}`],
         ...config.get('db'),
       }),
       inject: [ConfigService],
     }),
+
     // Static Folder
     // https://docs.nestjs.com/recipes/serve-static
     // https://docs.nestjs.com/techniques/mvc
@@ -38,6 +40,7 @@ import { SampleModule } from './sample/sample.module';
       rootPath: `${__dirname}/../public`,
       renderPath: '/',
     }),
+
     // Module Router
     // https://github.com/nestjsx/nest-router
     RouterModule.forRoutes([
@@ -50,6 +53,7 @@ import { SampleModule } from './sample/sample.module';
         module: SampleModule,
       },
     ]),
+    
     // Service Modules
     CommonModule, // Global
     BaseModule,

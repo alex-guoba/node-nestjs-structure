@@ -14,6 +14,8 @@ export const util = {
   },
 };
 
+// custom-configuration-files: app中实际load的为configuration
+// https://docs.nestjs.com/techniques/configuration#custom-configuration-files
 export const configuration = async (): Promise<Record<string, unknown>> => {
   const { config } = await import('./default');
   const environment = await import(`./${process.env.NODE_ENV || 'development'}`);

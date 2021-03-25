@@ -5,6 +5,8 @@ Node.js framework NestJS project structure
 ## TODO
 
 1. 更新到新版本nest框架
+2. 单测fix
+3. MVC
 
 ## Configuration
 
@@ -90,7 +92,7 @@ npm start
 - [Global Exception Filter](src/common/filters/exceptions.filter.ts)
 - [Global Logging Middleware](src/common/middleware/logger.middleware.ts)
 - [Custom Logger for Production](src/common/providers/logger.service.ts)
-- [Configuration](src/config)
+- [配置](src/config)
 - [Authentication](src/auth) - JWT and Session login with Passport
 - [Role-based Guard](src/common/guards/roles.guard.ts)
 - Controller Routes

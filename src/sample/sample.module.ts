@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { Sampletable1 } from '../entity/sampledb1';
@@ -15,6 +15,7 @@ import * as providers from './providers';
       Sampletable2,
     ]),
     FoobarModule, // Shared Module
+    HttpModule, // https://docs.nestjs.com/techniques/http-module
   ],
   controllers: Object.values(controllers),
   providers: Object.values(providers),

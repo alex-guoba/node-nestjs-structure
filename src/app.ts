@@ -6,6 +6,8 @@ import { middleware } from './app.middleware';
 import { AppModule } from './app.module';
 import { Logger } from './common';
 
+import { join } from 'path';
+
 /**
  * https://docs.nestjs.com
  * https://github.com/nestjs/nest/tree/master/sample
@@ -23,6 +25,11 @@ async function bootstrap(): Promise<void> {
       transform: true, // transform object to DTO class
     }),
   );
+
+  // https://docs.nestjs.com/techniques/mvc
+  // app.useStaticAssets(join(__dirname, '..', 'public')); // replaced by ServeStaticModule
+  app.setBaseViewsDir(join(__dirname, '..', 'views'));
+  app.setViewEngine('hbs');
 
   if (isProduction) {
     app.useLogger(await app.resolve(Logger));
