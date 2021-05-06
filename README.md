@@ -2,11 +2,17 @@
 
 Node.js framework NestJS project structure
 
-## TODO
+## TODO:
 
 1. 更新到新版本nest框架
 2. 单测fix
-3. MVC
+3. MVC sample
+- 引入模板引擎hbs
+4. [use alias](https://medium.com/slackernoon/use-typescript-aliases-to-clean-up-your-import-statements-7210b7ec2af1)
+- import改为别名导入，避免太多相对路径问题。
+5. 改为webpack打包，支持更加灵活的运行模式。避免对nest-cli的强依赖。
+- webpack无法识别路径，TypeORM entry加载改为[自动](https://docs.nestjs.com/techniques/database#auto-load-entities)。
+
 
 ## Configuration
 

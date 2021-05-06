@@ -1,9 +1,9 @@
 import { Module, HttpModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Sampletable1 } from '../entity/sampledb1';
-import { Sampletable2 } from '../entity/sampledb2';
-import { FoobarModule } from '../shared/foobar';
+import { Sampletable1 } from '@app/entity/sampledb1';
+import { Sampletable2 } from '@app/entity/sampledb2';
+import { FoobarModule } from '@app/shared/foobar';
 import * as controllers from './controllers';
 import * as providers from './providers';
 

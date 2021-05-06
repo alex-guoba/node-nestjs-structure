@@ -25,7 +25,10 @@ import { SampleModule } from './sample/sample.module';
     // https://docs.nestjs.com/techniques/database
     TypeOrmModule.forRootAsync({
       useFactory: (config: ConfigService) => ({
-        entities: [`${__dirname}/entity/**/*.{js,ts}`],
+        // glob paths are not supported by webpack. https://docs.nestjs.com/techniques/database#auto-load-entities 
+        //entities: [`${__dirname}/entity/**/*.{js,ts}`, 'dist/server/entity/**/*.{js,ts}'],
+        autoLoadEntities: true,
+
         // subscribers: [`${__dirname}/subscriber/**/*.{js,ts}`],
         // migrations: [`${__dirname}/migration/**/*.{js,ts}`],
         ...config.get('db'),

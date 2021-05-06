@@ -28,7 +28,7 @@ async function bootstrap(): Promise<void> {
 
   // https://docs.nestjs.com/techniques/mvc
   // app.useStaticAssets(join(__dirname, '..', 'public')); // replaced by ServeStaticModule
-  app.setBaseViewsDir(join(__dirname, '..', 'views'));
+  app.setBaseViewsDir(join(__dirname, 'files', 'template'));
   app.setViewEngine('hbs');
 
   if (isProduction) {

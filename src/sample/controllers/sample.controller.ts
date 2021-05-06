@@ -2,11 +2,11 @@ import { BadRequestException, Body, Controller, Get, Param, Post, Query, Req, Re
 import { ConfigService } from '@nestjs/config';
 import type { Request, Response } from 'express';
 
-import { Roles, RolesGuard, Logger } from '../../common';
-import { Sampletable1 } from '../../entity/sampledb1';
-import { FoobarService } from '../../shared/foobar';
-import { SampleDto } from '../dto';
-import { DatabaseService } from '../providers';
+import { Roles, RolesGuard, Logger } from '@app/common';
+import { Sampletable1 } from '@app/entity/sampledb1';
+import { FoobarService } from '@app/shared/foobar';
+import { SampleDto } from '@app/sample/dto';
+import { DatabaseService } from '@app/sample/providers';
 
 /**
  * route /test/sample/*

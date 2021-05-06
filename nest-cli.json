@@ -1,8 +1,16 @@
 {
+  "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "entryFile": "app",
+  
   "compilerOptions": {
-    "tsConfigPath": "tsconfig.build.json",
+    "webpack": false,
+    "tsConfigPath": "tsconfig.json",
+    "deleteOutDir": false,
+    "webpackConfigPath": "webpack.config.server.js",
+    "assets": ["files"],
+    "watchAssets": true,
+
     "plugins": [{
       "name": "@nestjs/graphql",
       "options": { "introspectComments": true }
