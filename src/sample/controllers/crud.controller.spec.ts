@@ -30,7 +30,8 @@ beforeAll(async () => {
       */
       TypeOrmModule.forRootAsync({
         useFactory: (config: ConfigService) => ({
-          entities: [`${__dirname}/../../entity/**/*.{js,ts}`],
+          // entities: [`${__dirname}/../../entity/**/*.{js,ts}`],
+          autoLoadEntities: true,
           ...config.get('db'),
         }),
         inject: [ConfigService],

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["./src/*"]
+      "@app/*": ["src/*"]
     },
     "target": "es2015",
     "outDir": "./dist/server",
@@ -26,6 +26,5 @@
     "strictNullChecks": true,
     "skipLibCheck": true
   },
-  "include": ["typings/global.d.ts", "src/**/*"],
-  // "exclude": ["node_modules"]
+  "include": ["typings/global.d.ts", "src/**/*"]
 }
