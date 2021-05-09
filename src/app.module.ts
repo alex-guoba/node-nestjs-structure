@@ -4,6 +4,7 @@ import { APP_FILTER } from '@nestjs/core';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RouterModule } from 'nest-router';
+import { ApiModule } from './api/api.module';
 
 import { AWSModule } from './aws/aws.module';
 import { BaseModule } from './base/base.module';
@@ -55,6 +56,10 @@ import { SampleModule } from './sample/sample.module';
         path: 'test',
         module: SampleModule,
       },
+      {
+        path: 'api',
+        module: ApiModule,
+      }
     ]),
     
     // Service Modules
@@ -63,6 +68,7 @@ import { SampleModule } from './sample/sample.module';
     SampleModule,
     AWSModule,
     GQLModule,
+    ApiModule
   ],
   providers: [
     // Global Guard, Authentication check on all routers
