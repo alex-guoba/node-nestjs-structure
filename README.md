@@ -14,7 +14,7 @@ Node.js framework NestJS project structure
     - webpack无法识别路径，TypeORM entry加载改为[自动](https://docs.nestjs.com/techniques/database#auto-load-entities)。
     - 可通过webpack开关开启，参考[compiler options](https://docs.nestjs.com/cli/monorepo#global-compiler-options)。
 - [ ] 后台能力
-    - [ ] 增加http接口调用demo
+    - [x] 增加http接口调用demo
     - [ ] 增加对redis调用demo
     - [ ] 增加基础数据上报
     - [ ] 性能监控&优化
