@@ -2,17 +2,19 @@ import { BadRequestException, Body, Controller, Get, Param, Post, Query, Req, Re
 import { ConfigService } from '@nestjs/config';
 import type { Request, Response } from 'express';
 
-import { Roles, RolesGuard, Logger } from '../../common';
-import { Sampletable1 } from '../../entity/sampledb1';
-import { FoobarService } from '../../shared/foobar';
-import { SampleDto } from '../dto';
-import { DatabaseService } from '../providers';
+import { Roles, RolesGuard, Logger } from '@app/common';
+import { Sampletable1 } from '@app/entity/sampledb1';
+import { FoobarService } from '@app/shared/foobar';
+import { SampleDto } from '@app/sample/dto';
+import { DatabaseService } from '@app/sample/providers';
 
 /**
  * route /test/sample/*
  */
 @UseGuards(RolesGuard)
-@Controller('sample')
+@Controller({
+  path: 'sample',
+})
 export class SampleController {
   constructor(
     private readonly logger: Logger,
@@ -26,7 +28,6 @@ export class SampleController {
   @Get() // http://localhost:3000/test/sample
   public sample(): Record<string, unknown> {
     this.logger.log('this is sample');
-
     return {
       hello: this.config.get('hello'),
       foo: this.config.get('foo'),

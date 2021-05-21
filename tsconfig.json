@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {},
-    "target": "ES2019",
-    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/*"]
+    },
+    "target": "es2015",
+    "outDir": "./dist/server",
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "incremental": true,
     "declaration": true,
     "newLine": "lf",
@@ -21,8 +23,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true, // https://github.com/Microsoft/TypeScript/issues/2577
     "esModuleInterop": true,
+    "strictNullChecks": true,
     "skipLibCheck": true
   },
-  "include": ["typings/global.d.ts", "src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["typings/global.d.ts", "src/**/*"]
 }

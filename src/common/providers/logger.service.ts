@@ -8,16 +8,14 @@ import { RequestContext } from './request-context.service';
  */
 @Injectable({ scope: Scope.TRANSIENT })
 export class Logger extends BaseLogger {
-  private isProduction: boolean = (process.env.NODE_ENV === 'production');
+  private isProduction: boolean = process.env.NODE_ENV === 'production';
 
   constructor(private req: RequestContext, context?: string) {
     super(context);
   }
 
   public log(message: unknown, context?: string): void {
-    this.isProduction
-      ? console.log(this.prefix(context), message)
-      : super.log(message, this.prefixContext(context));
+    this.isProduction ? console.log(this.prefix(context), message) : super.log(message, this.prefixContext(context));
   }
 
   public error(message: unknown, trace?: string, context?: string): void {

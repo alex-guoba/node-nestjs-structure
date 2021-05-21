@@ -14,23 +14,29 @@ export class EC2Service {
   constructor(private aws: AWSService) {}
 
   public async describeInstances(): Promise<DescribeInstancesResult> {
-    return this.instance.describeInstances({
-      Filters: [
-        // { Name: 'tag:Team', Values: ['test'] }
-      ],
-    }).promise();
+    return this.instance
+      .describeInstances({
+        Filters: [
+          // { Name: 'tag:Team', Values: ['test'] }
+        ],
+      })
+      .promise();
   }
 
   public async describeInstanceAttribute(instanceId: string, attribute: InstanceAttributeName = 'userData'): Promise<InstanceAttribute> {
-    return this.instance.describeInstanceAttribute({
-      InstanceId: instanceId,
-      Attribute: attribute,
-    }).promise();
+    return this.instance
+      .describeInstanceAttribute({
+        InstanceId: instanceId,
+        Attribute: attribute,
+      })
+      .promise();
   }
 
   public async describeInstanceStatus(instanceIds: string[]): Promise<DescribeInstanceStatusResult> {
-    return this.instance.describeInstanceStatus({
-      InstanceIds: instanceIds,
-    }).promise();
+    return this.instance
+      .describeInstanceStatus({
+        InstanceIds: instanceIds,
+      })
+      .promise();
   }
 }

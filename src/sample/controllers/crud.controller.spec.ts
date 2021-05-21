@@ -30,7 +30,8 @@ beforeAll(async () => {
       */
       TypeOrmModule.forRootAsync({
         useFactory: (config: ConfigService) => ({
-          entities: [`${__dirname}/../../entity/**/*.{js,ts}`],
+          // entities: [`${__dirname}/../../entity/**/*.{js,ts}`],
+          autoLoadEntities: true,
           ...config.get('db'),
         }),
         inject: [ConfigService],
@@ -42,7 +43,7 @@ beforeAll(async () => {
 });
 
 test('create', async () => {
-  const result = await crud.create({ title: 'FooBar', content: 'Hello World' });
+  const result = await crud.create({ title: 'FooBar', content: 'Hello World', tags: ['tag1', 'tag2']});
   expect(result).toHaveProperty('id');
   idx = result.id;
 });

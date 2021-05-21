@@ -26,7 +26,7 @@ beforeAll(async () => {
 });
 
 test('create', async () => {
-  const result = await crud.create({ title: 'FooBar', content: 'Hello World' });
+  const result = await crud.create({ title: 'FooBar', content: 'Hello Jack', tags: ['tag1', 'tag2'] });
   expect(result).toHaveProperty('id');
   idx = result.id;
 });

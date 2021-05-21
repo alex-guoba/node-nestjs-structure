@@ -23,9 +23,7 @@ export class ExceptionsFilter extends BaseExceptionFilter implements GqlExceptio
   }
 
   private getStatus(exception: unknown): number {
-    return exception instanceof HttpException
-      ? exception.getStatus()
-      : HttpStatus.INTERNAL_SERVER_ERROR;
+    return exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
   }
 
   private gqlException(exception: unknown): void {
@@ -37,9 +35,7 @@ export class ExceptionsFilter extends BaseExceptionFilter implements GqlExceptio
     }
 
     const status = this.getStatus(exception);
-    const error = exception instanceof Error
-      ? exception
-      : new Error(String(exception));
+    const error = exception instanceof Error ? exception : new Error(String(exception));
 
     if (status === HttpStatus.INTERNAL_SERVER_ERROR) {
       this.logger.error(error.message, error.stack, 'UnhandledException');

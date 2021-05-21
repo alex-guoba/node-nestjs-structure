@@ -1,9 +1,19 @@
-import { Body, Controller, Get, Param, Post, Put, Delete,
-  NotFoundException, InternalServerErrorException, ParseIntPipe } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  Delete,
+  NotFoundException,
+  InternalServerErrorException,
+  ParseIntPipe,
+} from '@nestjs/common';
 
-import { Sampletable1 } from '../../entity/sampledb1';
-import { CrudDto } from '../dto';
-import { CrudService } from '../providers';
+import { Sampletable1 } from '@app/entity/sampledb1';
+import { CrudDto } from '@app/sample/dto';
+import { CrudService } from '@app/sample/providers';
 
 /**
  * route /test/crud/*

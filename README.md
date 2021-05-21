@@ -2,6 +2,23 @@
 
 Node.js framework NestJS project structure
 
+## TODO:
+
+- [x] 更新到新版本nest框架
+- [x] 单测fix
+- [x] MVC sample
+引入模板引擎hbs
+- [x] [use alias](https://medium.com/slackernoon/use-typescript-aliases-to-clean-up-your-import-statements-7210b7ec2af1)
+    - import改为别名导入，避免太多相对路径问题。
+- [x] 支持webpack打包，支持更加灵活的运行模式。
+    - webpack无法识别路径，TypeORM entry加载改为[自动](https://docs.nestjs.com/techniques/database#auto-load-entities)。
+    - 可通过webpack开关开启，参考[compiler options](https://docs.nestjs.com/cli/monorepo#global-compiler-options)。
+- [ ] 后台能力
+    - [x] 增加http接口调用demo
+    - [ ] 增加对redis调用demo
+    - [ ] 增加基础数据上报
+    - [ ] 性能监控&优化
+
 ## Configuration
 
 1. Create a `.env` file
@@ -86,7 +103,7 @@ npm start
 - [Global Exception Filter](src/common/filters/exceptions.filter.ts)
 - [Global Logging Middleware](src/common/middleware/logger.middleware.ts)
 - [Custom Logger for Production](src/common/providers/logger.service.ts)
-- [Configuration](src/config)
+- [配置](src/config)
 - [Authentication](src/auth) - JWT and Session login with Passport
 - [Role-based Guard](src/common/guards/roles.guard.ts)
 - Controller Routes
