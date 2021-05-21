@@ -1,6 +1,7 @@
 import { Module, HttpModule } from '@nestjs/common';
-import { QuotesService } from './services/quotes.service';
+
 import { QuotesController } from './controllers/quotes.controller';
+import { QuotesService } from './services/quotes.service';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import { QuotesController } from './controllers/quotes.controller';
     }),
   ],
   providers: [QuotesService],
-  controllers: [QuotesController]
+  controllers: [QuotesController],
 })
 export class ApiModule {}
